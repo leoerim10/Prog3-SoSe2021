@@ -1,2 +1,3 @@
-# Prog3-SoSe2021
-Homework submission for Programmierung 3, SoSe 2021, HTW Berlin
+# WAD-SoSe21
+Homework submission for Web Application Development, SoSe21, HTW Berlin
+by Sameer Dhimal and Wojciech Maximilian Frackowski
