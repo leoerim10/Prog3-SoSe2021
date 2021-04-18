@@ -1,17 +1,24 @@
 import java.math.BigInteger;
 
 public class Bruch implements Comparable<Bruch>{
-    public int zahler;
-    public int nenner;
+    private int zahler;
+    private int nenner;
 
     public Bruch(int zahler, int nenner){
         if(nenner == 0){
-            System.out.println("Nenner can not be 0");
-            //throw new Exception("how to handle this?");
+            throw new IllegalArgumentException("Nenner can not be 0");
         }
 
         this.zahler = zahler;
         this.nenner = nenner;
+    }
+
+    public int getZahler(){
+        return this.zahler;
+    }
+
+    public int getNenner(){
+        return this.nenner;
     }
 
     public Bruch multiplizieren(Bruch b){
@@ -24,7 +31,13 @@ public class Bruch implements Comparable<Bruch>{
     }
 
     public void kuerzen(){
-        //needs ggt? not sure how to do it? 
+        int gcd = getGCD();
+        int newNenner = this.nenner / gcd;
+        int newZahler = this.zahler / gcd;
+
+        this.nenner = newNenner;
+        this.zahler = newZahler;
+    
     }
 
     public Bruch kehrwert(){
@@ -38,21 +51,31 @@ public class Bruch implements Comparable<Bruch>{
 
     @Override
     public int compareTo(Bruch obj){
-        //not sure about this either
-        obj.kuerzen();
-        this.kuerzen();
+        double x1 = this.ausrechnen();
+        double x2 = obj.ausrechnen();
 
-        if (this.nenner == obj.nenner) {
+        if(x1==x2){
             return 0;
-        } else if (this.nenner > obj.nenner){
-            return -1;
-        } else {
+        } else if (x1 > x2){
             return 1;
+        } else {
+            return -1;
         }
+
+    }
+
+    public int getGCD(){
+        BigInteger b1 = BigInteger.valueOf(this.zahler);
+        BigInteger b2 = BigInteger.valueOf(this.nenner);
+
+        BigInteger gcd = b1.gcd(b2);
+        return gcd.intValue();
     }
 
     public String toString(){
         return "Zahler: " + this.zahler + " Nenner: " + this.nenner + "\n";
     }
+
+
 
 }
