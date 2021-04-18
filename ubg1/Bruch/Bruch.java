@@ -27,7 +27,8 @@ public class Bruch implements Comparable<Bruch>{
     }
 
     public double ausrechnen(){
-        return this.zahler/this.nenner;
+        double div = (double)this.zahler/(double)this.nenner;
+        return div;
     }
 
     public void kuerzen(){
@@ -53,15 +54,13 @@ public class Bruch implements Comparable<Bruch>{
     public int compareTo(Bruch obj){
         double x1 = this.ausrechnen();
         double x2 = obj.ausrechnen();
-
         if(x1==x2){
             return 0;
-        } else if (x1 > x2){
-            return 1;
-        } else {
+        } else if (x1 < x2){
             return -1;
+        } else {
+            return 1;
         }
-
     }
 
     public int getGCD(){
