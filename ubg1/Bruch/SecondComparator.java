@@ -1,5 +1,8 @@
 import java.util.Comparator;
 
+/**
+ * sortiert absteigend
+ */
 public class SecondComparator implements Comparator<Bruch>{
     public int compare(Bruch a, Bruch b){
         double x1 = a.ausrechnen();

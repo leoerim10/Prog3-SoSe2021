@@ -20,10 +20,7 @@ public class BruchMain{
 
         // sortiert aufsteigend  //
         System.out.println("First Comparator:");
-
-
         Collections.sort(list, new FirstComparator());
-
         for(Bruch b: list){
             System.out.println(b);
         }
@@ -31,9 +28,7 @@ public class BruchMain{
 
         // sortiert absteigend //
         System.out.println("Second Comparator:");
-
         Collections.sort(list, new SecondComparator());
-
         for(Bruch b: list){
             System.out.println(b);
         }

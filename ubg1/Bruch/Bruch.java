@@ -1,42 +1,35 @@
 import java.math.BigInteger;
+
 /**
  * speichert ein mathematische Bruch
  * er besteht aus einem Zaehler und einem Nenner
  * @author Sameer Dhimal 569076,  Wojciech Maximilan Frackowski 576278
  */
-public class Bruch implements Comparable<Bruch>{
-
-    private int zaehler;
+public class Bruch {
+    private int zahler;
     private int nenner;
+
 
     /**
      * Setzt die beiden Eigenschaften zaehler und nenner auf die angegebenen Werte
-     * @param zaehler Zaehler
+     * @param zahler Zaehler
      * @param nenner Nenner
      * @throws IllegalArgumentException wenn der Nenner null ist
      */
-    public Bruch(int zaehler, int nenner) throws IllegalArgumentException {
-        if (nenner == 0)
-            throw new IllegalArgumentException("Nenner darf niemals null sein!!!");
-        this.zaehler = zaehler;
+    public Bruch(int zahler, int nenner){
+        if(nenner == 0){
+            throw new IllegalArgumentException("Nenner can not be 0");
+        }
+        this.zahler = zahler;
         this.nenner = nenner;
     }
 
-    public int getZaehler() {
-        return zaehler;
+    public int getZahler(){
+        return this.zahler;
     }
 
-    public int getNenner() {
-        return nenner;
-    }
-
-    /**
-     * liefert eine String-Darstellung des Bruches
-     * @return eine String-Darstellung des Bruches
-     */
-    @Override
-    public String toString() {
-        return "Zaehler: " + this.zaehler + " Nenner: " + this.nenner + "\n";
+    public int getNenner(){
+        return this.nenner;
     }
 
     /**
@@ -45,17 +38,17 @@ public class Bruch implements Comparable<Bruch>{
      * @return Ergebnis der Multiplikation
      */
     public Bruch multiplizieren(Bruch b){
-        Bruch n = new Bruch(this.getZaehler()*b.zaehler, this.getNenner()*b.nenner);
+        Bruch n = new Bruch(this.zahler*b.zahler, this.nenner*b.nenner);
         return n;
     }
-
 
     /**
      * rechnet den Bruch in eine Kommazahl um
      * @return das Ergebnis in ein Kommazahl
      */
     public double ausrechnen(){
-        return this.zaehler/this.nenner;
+        double div = (double)this.zahler/(double)this.nenner;
+        return div;
     }
 
     /**
@@ -64,19 +57,19 @@ public class Bruch implements Comparable<Bruch>{
     public void kuerzen(){
         int gcd = getGCD();
         int newNenner = this.nenner / gcd;
-        int newZahler = this.zaehler / gcd;
+        int newZahler = this.zahler / gcd;
 
         this.nenner = newNenner;
-        this.zaehler = newZahler;
-    }
+        this.zahler = newZahler;
 
+    }
 
     /**
      * wandelt sich in Kehrwert um
      * @return liefert den Kehrwert
      */
     public Bruch kehrwert(){
-        Bruch n = new Bruch (this.getNenner(), this.getZaehler());
+        Bruch n = new Bruch(this.nenner, this.zahler);
         return n;
     }
 
@@ -94,27 +87,22 @@ public class Bruch implements Comparable<Bruch>{
      * @return Wert der groeste gemeinsame Teiler
      */
     public int getGCD(){
-        BigInteger b1 = BigInteger.valueOf(this.zaehler);
+        BigInteger b1 = BigInteger.valueOf(this.zahler);
         BigInteger b2 = BigInteger.valueOf(this.nenner);
 
         BigInteger gcd = b1.gcd(b2);
         return gcd.intValue();
     }
 
+    /**
+     * liefert eine String-Darstellung des Bruches
+     * @return eine String-Darstellung des Bruches
+     */
     @Override
-    public int compareTo(Bruch o) {
-        double x1 = this.ausrechnen();
-        double x2 = o.ausrechnen();
-
-        if(x1==x2){
-            return 0;
-        } else if (x1 > x2){
-            return 1;
-        } else {
-            return -1;
-        }
+    public String toString(){
+        return "Zahler: " + this.zahler + " Nenner: " + this.nenner;
     }
 
 
-}
 
+}
