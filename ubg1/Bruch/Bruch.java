@@ -1,6 +1,6 @@
 import java.math.BigInteger;
 
-public class Bruch implements Comparable<Bruch>{
+public class Bruch {
     private int zahler;
     private int nenner;
 
@@ -50,19 +50,6 @@ public class Bruch implements Comparable<Bruch>{
         return multiplizieren(kehrwert());
     }
 
-    @Override
-    public int compareTo(Bruch obj){
-        double x1 = this.ausrechnen();
-        double x2 = obj.ausrechnen();
-        if(x1==x2){
-            return 0;
-        } else if (x1 < x2){
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-
     public int getGCD(){
         BigInteger b1 = BigInteger.valueOf(this.zahler);
         BigInteger b2 = BigInteger.valueOf(this.nenner);
@@ -72,7 +59,7 @@ public class Bruch implements Comparable<Bruch>{
     }
 
     public String toString(){
-        return "Zahler: " + this.zahler + " Nenner: " + this.nenner + "\n";
+        return "Zahler: " + this.zahler + " Nenner: " + this.nenner;
     }
 
 

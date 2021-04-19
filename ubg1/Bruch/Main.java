@@ -17,7 +17,17 @@ public class Main{
         list.add(b4);
         list.add(b5);
 
-        Collections.sort(list);
+        System.out.println("First Comparator:");
+
+        Collections.sort(list, new FirstComparator());
+
+        for(Bruch b: list){
+            System.out.println(b);
+        }
+
+        System.out.println("Second Comparator:");
+
+        Collections.sort(list, new SecondComparator());
 
         for(Bruch b: list){
             System.out.println(b);
