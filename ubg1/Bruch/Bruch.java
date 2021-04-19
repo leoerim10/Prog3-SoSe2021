@@ -16,9 +16,9 @@ public class Bruch implements Comparable<Bruch>{
      * @throws IllegalArgumentException wenn der Nenner null ist
      */
     public Bruch(int zaehler, int nenner) throws IllegalArgumentException {
-        this.zaehler = zaehler;
         if (nenner == 0)
             throw new IllegalArgumentException("Nenner darf niemals null sein!!!");
+        this.zaehler = zaehler;
         this.nenner = nenner;
     }
 
@@ -28,20 +28,6 @@ public class Bruch implements Comparable<Bruch>{
 
     public int getNenner() {
         return nenner;
-    }
-
-    @Override
-    public int compareTo(Bruch o) {
-        double x1 = this.ausrechnen();
-        double x2 = o.ausrechnen();
-
-        if(x1==x2){
-            return 0;
-        } else if (x1 > x2){
-            return 1;
-        } else {
-            return -1;
-        }
     }
 
     /**
@@ -114,6 +100,21 @@ public class Bruch implements Comparable<Bruch>{
         BigInteger gcd = b1.gcd(b2);
         return gcd.intValue();
     }
+
+    @Override
+    public int compareTo(Bruch o) {
+        double x1 = this.ausrechnen();
+        double x2 = o.ausrechnen();
+
+        if(x1==x2){
+            return 0;
+        } else if (x1 > x2){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
 
 }
 
