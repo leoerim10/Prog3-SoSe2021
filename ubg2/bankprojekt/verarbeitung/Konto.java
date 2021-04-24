@@ -1,5 +1,7 @@
 package bankprojekt.verarbeitung;
 
+import bankprojekt.verarbeitung.GesperrtException;
+
 /**
  * stellt ein allgemeines Konto dar
  */
@@ -19,6 +21,11 @@ public abstract class Konto implements Comparable<Konto>
 	 * der aktuelle Kontostand
 	 */
 	private double kontostand;
+
+	/**
+	 * Waehrung
+	 */
+	private Waehrung waehrung = Waehrung.EUR;
 
 	/**
 	 * setzt den aktuellen Kontostand
@@ -236,5 +243,9 @@ public abstract class Konto implements Comparable<Konto>
 		if(other.getKontonummer() < this.getKontonummer())
 			return 1;
 		return 0;
+	}
+
+	public boolean abheben(double betrag, Waehrung w) throws GesperrtException {
+		
 	}
 }

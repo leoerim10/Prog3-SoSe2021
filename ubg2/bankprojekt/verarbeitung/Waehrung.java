@@ -8,14 +8,10 @@ public enum Waehrung {
     }
 
     public double euroInWaehrungUmrechnen(double betrag){
-        double x = 0;
-
-        return x;
+        return betrag * this.x;
     }
 
     public double waehrungInEuroUmrechnen(double betrag){
-        double x = 0;
-
-        return x;
+        return betrag / this.x;  
     }
 }
