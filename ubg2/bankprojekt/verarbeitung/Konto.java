@@ -1,7 +1,7 @@
 package bankprojekt.verarbeitung;
 
 import bankprojekt.verarbeitung.GesperrtException;
-
+import bankprojekt.verarbeitung.Waehrung;
 /**
  * stellt ein allgemeines Konto dar
  */
@@ -205,7 +205,7 @@ public abstract class Konto implements Comparable<Konto>
 	 */
 	public String getKontostandFormatiert()
 	{
-		return String.format("%10.2f Euro" , this.getKontostand());
+		return String.format("%10.2f %s" , this.getKontostand(), this.waehrung.name());
 	}
 	
 	/**
@@ -246,6 +246,35 @@ public abstract class Konto implements Comparable<Konto>
 	}
 
 	public boolean abheben(double betrag, Waehrung w) throws GesperrtException {
+		double x;
+		if(this.waehrung.name() != w.name()){
+			x = w.waehrungInEuroUmrechnen(betrag);
+		} else {
+			x = betrag;
+		}
+		if(getKontostand() > x){
+			throw new GesperrtException(getKontonummer());
+		} 
 		
+		setKontostand(getKontostand() - x);
+		return true;
+	}
+
+	public void einzahlen(double betrag, Waehrung w){
+		double x = w.waehrungInEuroUmrechnen(betrag);
+		setKontostand(getKontostand() + x);
+	}
+
+	public void setWaehrung(Waehrung neu){
+		this.waehrung = neu;
+	}
+
+	public Waehrung getAktuelleWaehrung(){
+		return this.waehrung;
+	}
+
+	public void waehrungswechsel(Waehrung neu){
+		setWaehrung(neu);
+		setKontostand(neu.waehrungInEuroUmrechnen(this.kontostand));
 	}
 }
