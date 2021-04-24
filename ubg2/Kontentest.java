@@ -7,14 +7,14 @@ import bankprojekt.verarbeitung.Kunde;
 import bankprojekt.verarbeitung.Sparbuch;
 
 /**
- * Testprogramm für Konten
+ * Testprogramm fur Konten
  * @author Doro
  *
  */
 public class Kontentest {
 
 	/**
-	 * Testprogramm für Konten
+	 * Testprogramm fur Konten
 	 * @param args wird nicht benutzt
 	 */
 	public static void main(String[] args) {

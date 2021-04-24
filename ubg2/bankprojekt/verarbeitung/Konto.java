@@ -29,17 +29,17 @@ public abstract class Konto implements Comparable<Konto>
 	}
 
 	/**
-	 * Wenn das Konto gesperrt ist (gesperrt = true), können keine Aktionen daran mehr vorgenommen werden,
-	 * die zum Schaden des Kontoinhabers wären (abheben, Inhaberwechsel)
+	 * Wenn das Konto gesperrt ist (gesperrt = true), konnen keine Aktionen daran mehr vorgenommen werden,
+	 * die zum Schaden des Kontoinhabers waren (abheben, Inhaberwechsel)
 	 */
 	private boolean gesperrt;
 
 	/**
 	 * Setzt die beiden Eigenschaften kontoinhaber und kontonummer auf die angegebenen Werte,
-	 * der anfängliche Kontostand wird auf 0 gesetzt.
+	 * der anfangliche Kontostand wird auf 0 gesetzt.
 	 *
 	 * @param inhaber der Inhaber
-	 * @param kontonummer die gewünschte Kontonummer
+	 * @param kontonummer die gewï¿½nschte Kontonummer
 	 * @throws IllegalArgumentException wenn der Inhaber null
 	 */
 	public Konto(Kunde inhaber, long kontonummer) {
@@ -59,7 +59,7 @@ public abstract class Konto implements Comparable<Konto>
 	}
 
 	/**
-	 * liefert den Kontoinhaber zurück
+	 * liefert den Kontoinhaber zuruck
 	 * @return   der Inhaber
 	 */
 	public final Kunde getInhaber() {
@@ -90,7 +90,7 @@ public abstract class Konto implements Comparable<Konto>
 	}
 
 	/**
-	 * liefert die Kontonummer zurück
+	 * liefert die Kontonummer zurï¿½ck
 	 * @return   long
 	 */
 	public final long getKontonummer() {
@@ -98,15 +98,15 @@ public abstract class Konto implements Comparable<Konto>
 	}
 
 	/**
-	 * liefert zurück, ob das Konto gesperrt ist oder nicht
+	 * liefert zurï¿½ck, ob das Konto gesperrt ist oder nicht
 	 * @return true, wenn das Konto gesperrt ist
 	 */
-	public final boolean isGesperrt() {   //Getter, aber eben für booleschen Wert
+	public final boolean isGesperrt() {   //Getter, aber eben fï¿½r booleschen Wert
 		return gesperrt;
 	}
 	
 	/**
-	 * Erhöht den Kontostand um den eingezahlten Betrag.
+	 * Erhï¿½ht den Kontostand um den eingezahlten Betrag.
 	 *
 	 * @param betrag double
 	 * @throws IllegalArgumentException wenn der betrag negativ ist 
@@ -119,7 +119,7 @@ public abstract class Konto implements Comparable<Konto>
 	}
 	
 	/**
-	 * Gibt eine Zeichenkettendarstellung der Kontodaten zurück.
+	 * Gibt eine Zeichenkettendarstellung der Kontodaten zurï¿½ck.
 	 */
 	@Override
 	public String toString() {
@@ -133,7 +133,7 @@ public abstract class Konto implements Comparable<Konto>
 	}
 	
 	/**
-	 * dient rein didaktischen Zwecken, gehört hier eigentlich nicht her
+	 * dient rein didaktischen Zwecken, gehï¿½rt hier eigentlich nicht her
 	 */
 	public void ausgeben()
 	{
@@ -153,14 +153,14 @@ public abstract class Konto implements Comparable<Konto>
 								throws GesperrtException;
 	
 	/**
-	 * sperrt das Konto, Aktionen zum Schaden des Benutzers sind nicht mehr möglich.
+	 * sperrt das Konto, Aktionen zum Schaden des Benutzers sind nicht mehr mï¿½glich.
 	 */
 	public final void sperren() {
 		this.gesperrt = true;
 	}
 
 	/**
-	 * entsperrt das Konto, alle Kontoaktionen sind wieder möglich.
+	 * entsperrt das Konto, alle Kontoaktionen sind wieder mï¿½glich.
 	 */
 	public final void entsperren() {
 		this.gesperrt = false;
@@ -194,7 +194,7 @@ public abstract class Konto implements Comparable<Konto>
 	
 	/**
 	 * liefert den ordentlich formatierten Kontostand
-	 * @return formatierter Kontostand mit 2 Nachkommastellen und Währungssymbol
+	 * @return formatierter Kontostand mit 2 Nachkommastellen und Wï¿½hrungssymbol
 	 */
 	public String getKontostandFormatiert()
 	{

@@ -7,7 +7,7 @@ package bankprojekt.verarbeitung;
  */
 public class Girokonto extends Konto implements Ueberweisungsfaehig{
 	/**
-	 * Wert, bis zu dem das Konto überzogen werden darf
+	 * Wert, bis zu dem das Konto berzogen werden darf
 	 */
 	private double dispo;
 
@@ -33,7 +33,7 @@ public class Girokonto extends Konto implements Ueberweisungsfaehig{
 		//nur Kommentare...
 		super(inhaber, nummer);
 		if(dispo < 0 || Double.isNaN(dispo))
-			throw new IllegalArgumentException("Der Dispo ist nicht gültig!");
+			throw new IllegalArgumentException("Der Dispo ist nicht gultig!");
 		this.dispo = dispo;
 	}
 	
@@ -47,7 +47,7 @@ public class Girokonto extends Konto implements Ueberweisungsfaehig{
 
 	/**
 	 * setzt den Dispo neu
-	 * @param dispo muss größer sein als 0
+	 * @param dispo muss grosser sein als 0
 	 * @throws IllegalArgumentException wenn dispo negativ bzw. NaN ist
 	 */
 	public void setDispo(double dispo) {

@@ -14,7 +14,7 @@ public class Sparbuch extends Konto {
 	private double zinssatz;
 	
 	/**
-	 * Monatlich erlaubter Gesamtbetrag für Abhebungen
+	 * Monatlich erlaubter Gesamtbetrag fur Abhebungen
 	 */
 	public static final double ABHEBESUMME = 2000;
 	

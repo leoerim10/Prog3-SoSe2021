@@ -2,24 +2,24 @@ package bankprojekt.verarbeitung;
 
 /**
  * Dieses Interface zeigt an, dass mit einem 
- * implementierenden Konto Überweisungen
- * durchgeführt werden können
+ * implementierenden Konto uberweisungen
+ * durchgefuhrt werden konnen
  * @author Dorothea Hubrich
  *
  */
 public interface Ueberweisungsfaehig {
     /**
-     * bucht den angegebenen Betrag von this als Überweisung ab, 
+     * bucht den angegebenen Betrag von this als uberweisung ab, 
      * falls es nicht gesperrt ist und alle kontospezifischen 
-     * Regeln für die Überweisung eingehalten werden.
-     * Am Empfängerkonto wird keine Ã„nderung vorgenommen, da davon ausgegangen wird, dass dieses sich
+     * Regeln fur die uberweisung eingehalten werden.
+     * Am Empfangerkonto wird keine Ã„nderung vorgenommen, da davon ausgegangen wird, dass dieses sich
      * bei einer anderen Bank befindet.
      * @param betrag double
      * @param empfaenger String
      * @param nachKontonr int
      * @param nachBlz int
      * @param verwendungszweck String
-     * @return boolean true, wenn die Überweisungsabbuchung ausgeführt wurde,
+     * @return boolean true, wenn die uberweisungsabbuchung ausgefuhrt wurde,
      *                 false, wenn nicht (weil kontospezifische Regeln verletzt wurden, 
      *                 	     z.B. Kontostand reicht nicht aus)
      * @throws GesperrtException wenn das Konto gesperrt ist
@@ -32,7 +32,7 @@ public interface Ueberweisungsfaehig {
     				throws GesperrtException;
     
     /**
-     * this empfängt den angegebenen betrag per Überweisung
+     * this empfï¿½ngt den angegebenen betrag per ï¿½berweisung
      * @param betrag double
      * @param vonName String
      * @param vonKontonr int

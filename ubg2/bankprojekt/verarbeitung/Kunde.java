@@ -17,7 +17,7 @@ import java.util.Locale;
 public class Kunde implements Comparable<Kunde>{
 	
 	/**
-	 * Klasse für Aufräumarbeiten
+	 * Klasse fur Aufrumarbeiten
 	 * @author Doro
 	 *
 	 */
@@ -25,8 +25,8 @@ public class Kunde implements Comparable<Kunde>{
 	{
 		@Override
 		public void run() {
-			System.out.println("Kunde zerstört");
-			//alle zu erledigenden Aufräumarbeiten
+			System.out.println("Kunde zerstort");
+			//alle zu erledigenden Aufrumarbeiten
 		}
 	}
 
@@ -102,7 +102,7 @@ public class Kunde implements Comparable<Kunde>{
 	 * @param nachname Nachname
 	 * @param adresse Adresse
 	 * @param gebdat Geburtstag im Format tt.mm.yy
-	 * @throws DateTimeParseException wenn das Format des übergebenen Datums nicht korrekt ist
+	 * @throws DateTimeParseException wenn das Format des ubergebenen Datums nicht korrekt ist
 	 * @throws IllegalArgumentException wenn einer der Parameter null ist
 	 */
 	public Kunde(String vorname, String nachname, String adresse, String gebdat)  {
@@ -123,9 +123,9 @@ public class Kunde implements Comparable<Kunde>{
 	}
 
 	/**
-	 * vollständiger Name des Kunden in der Form "Nachname, Vorname"
+	 * vollstandiger Name des Kunden in der Form "Nachname, Vorname"
 	 * 
-	 * @return vollständiger Name des Kunden
+	 * @return vollstandiger Name des Kunden
 	 */
 	public String getName() {
 		return this.nachname + ", " + this.vorname;
