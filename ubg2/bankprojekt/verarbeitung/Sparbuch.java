@@ -69,6 +69,7 @@ public class Sparbuch extends Konto {
 		{
 			this.bereitsAbgehoben = 0;
 		}
+
 		if (getKontostand() - betrag >= 0.50 && 
 				 bereitsAbgehoben + betrag <= Sparbuch.ABHEBESUMME)
 		{
