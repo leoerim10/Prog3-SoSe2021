@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Sameer Dhimal 569076,  Wojciech Maximilan Frackowski 576278
+ */
+
 package bankprojekt.verarbeitung;
 
 public enum Waehrung {

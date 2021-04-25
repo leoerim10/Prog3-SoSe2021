@@ -246,21 +246,21 @@ public abstract class Konto implements Comparable<Konto>
 	}
 
 	public boolean abheben(double betrag, Waehrung w) throws GesperrtException {
-		double x;
-		if(this.waehrung.name() != w.name()){
-			x = w.waehrungInEuroUmrechnen(betrag);
-		} else {
-			x = betrag;
-		}
-		if(getKontostand() > x){
+		double x = w.waehrungInEuroUmrechnen(betrag);
+		if(getKontostand() - x < 0){
 			throw new GesperrtException(getKontonummer());
-		} 
-		
-		setKontostand(getKontostand() - x);
+		}
+
+		double newKontoStand = getKontostand() - x;
+		setKontostand(newKontoStand);
+
 		return true;
 	}
 
 	public void einzahlen(double betrag, Waehrung w){
+		if (betrag < 0 || Double.isNaN(betrag)) {
+			throw new IllegalArgumentException("Betrag ungültig");
+		}
 		double x = w.waehrungInEuroUmrechnen(betrag);
 		setKontostand(getKontostand() + x);
 	}
@@ -274,7 +274,8 @@ public abstract class Konto implements Comparable<Konto>
 	}
 
 	public void waehrungswechsel(Waehrung neu){
+		double newKontoStand = neu.euroInWaehrungUmrechnen(getKontostand());
+		setKontostand(newKontoStand);
 		setWaehrung(neu);
-		setKontostand(neu.waehrungInEuroUmrechnen(this.kontostand));
 	}
 }
