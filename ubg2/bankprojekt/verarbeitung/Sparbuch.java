@@ -40,7 +40,7 @@ public class Sparbuch extends Konto {
      * @throws IllegalArgumentException wenn inhaber null ist
      */
     public Sparbuch(Kunde inhaber, long kontonummer) {
-        super(inhaber, kontonummer);
+        super(inhaber, kontonummer, Waehrung.EUR);
         zinssatz = 0.03;
     }
 
@@ -55,6 +55,11 @@ public class Sparbuch extends Konto {
 
     @Override
     public boolean abheben (double betrag) throws GesperrtException{
+        // rechnet erst die in Euro angegebene Abhebesumme in der aktuellen Waehrung des Sparbuchs
+        if (getAktuelleWaehrung()==Waehrung.EUR) {
+            betrag = getAktuelleWaehrung().euroInWaehrungUmrechnen(betrag);
+        }
+
         if (betrag < 0 || Double.isNaN(betrag)) {
             throw new IllegalArgumentException("Betrag ungÃ¼ltig");
         }
