@@ -19,6 +19,12 @@ public abstract class Konto implements Comparable<Konto>
      */
     private double kontostand;
 
+
+    /**
+     * die Waehrung
+     */
+    private Waehrung waehrung = Waehrung.EUR;
+
     /**
      * setzt den aktuellen Kontostand
      * @param kontostand neuer Kontostand
@@ -41,20 +47,21 @@ public abstract class Konto implements Comparable<Konto>
      * @param kontonummer die gewünschte Kontonummer
      * @throws IllegalArgumentException wenn der Inhaber null
      */
-    public Konto(Kunde inhaber, long kontonummer) {
+    public Konto(Kunde inhaber, long kontonummer, Waehrung waehrung) {
         if(inhaber == null)
             throw new IllegalArgumentException("Inhaber darf nicht null sein!");
         this.inhaber = inhaber;
         this.nummer = kontonummer;
         this.kontostand = 0;
         this.gesperrt = false;
+        this.waehrung = waehrung;
     }
 
     /**
      * setzt alle Eigenschaften des Kontos auf Standardwerte
      */
     public Konto() {
-        this(Kunde.MUSTERMANN, 1234567);
+        this(Kunde.MUSTERMANN, 1234567, Waehrung.EUR);
     }
 
     /**
@@ -236,4 +243,67 @@ public abstract class Konto implements Comparable<Konto>
             return 1;
         return 0;
     }
+
+
+    /**
+     * hebt den gewuenschten in der Waehrung w angegebenen Betrag ab.
+     * @param betrag gegebene Betrag
+     * @param w Waehurng
+     * @return true, wenn der erfolgreich abgehoben wurde
+     * @throws GesperrtException wenn der Betrag nicht genug ist, abzuheben
+     */
+    public boolean abheben(double betrag, Waehrung w) throws GesperrtException{
+        double x = w.waehrungInEuroUmrechnen(betrag);
+        if(getKontostand() - x < 0){
+            throw new GesperrtException(getKontonummer());
+        }
+
+        double newKontoStand = getKontostand() - x;
+        setKontostand(newKontoStand);
+
+        return true;
+    }
+
+
+    /**
+     * zahlt den in der Währung w angegebenen Betrag ein
+     * @param betrag Betrag einzuzahlen
+     * @param w gegebene Waehrung
+     */
+    public void einzahlen(double betrag, Waehrung w){
+        if (betrag < 0 || Double.isNaN(betrag)) {
+            throw new IllegalArgumentException("Betrag ungültig");
+        }
+        double x = w.waehrungInEuroUmrechnen(betrag);
+        setKontostand(getKontostand() + x);
+    }
+
+    /**
+     * setzt den Betrag auf neue Waehrung
+     * @param neu gegebene Waehrung
+     */
+    public void setWaehrung(Waehrung neu){
+        this.waehrung = neu;
+    }
+
+    /**
+     * liefert die Währung zurück, in der das Konto aktuell geführt wird
+     * @return den aktuellen Betrag
+     */
+    public Waehrung getAktuelleWaehrung(){
+        return this.waehrung;
+    }
+
+    /**
+     * wechselt die Währung, in der das Konto aktuell geführt wird
+     * @param neu neue Waehrung, in der den Betrag gewechselt wird
+     */
+    public void waehrungswechsel(Waehrung neu){
+        double newKontoStand = neu.euroInWaehrungUmrechnen(getKontostand());
+        setKontostand(newKontoStand);
+        setWaehrung(neu);
+    }
+
+
+
 }
