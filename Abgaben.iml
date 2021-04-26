@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/ubg1/Bruch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ubg1/Ratespiel" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ubg1/Uhrzeit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ubg2/bankprojekt/verarbeitung" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ubg2/testbank" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
