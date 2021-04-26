@@ -16,7 +16,7 @@ public class Girokonto extends Konto implements Ueberweisungsfaehig{
      */
     public Girokonto()
     {
-        super(Kunde.MUSTERMANN, 99887766);
+        super(Kunde.MUSTERMANN, 99887766, Waehrung.EUR);
         this.dispo = 500;
     }
 
@@ -30,7 +30,7 @@ public class Girokonto extends Konto implements Ueberweisungsfaehig{
     public Girokonto(Kunde inhaber, long nummer, double dispo)
     {
         //nur Kommentare...
-        super(inhaber, nummer);
+        super(inhaber, nummer, Waehrung.EUR);
         if(dispo < 0 || Double.isNaN(dispo))
             throw new IllegalArgumentException("Der Dispo ist nicht gültig!");
         this.dispo = dispo;
