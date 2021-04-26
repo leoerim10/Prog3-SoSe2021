@@ -204,7 +204,7 @@ public abstract class Konto implements Comparable<Konto>
      */
     public String getKontostandFormatiert()
     {
-        return String.format("%10.2f Euro" , this.getKontostand());
+        return String.format("%10.2f %s" , this.getKontostand(), this.getAktuelleWaehrung().name());
     }
 
     /**
