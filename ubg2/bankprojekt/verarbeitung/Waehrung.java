@@ -1,5 +1,5 @@
 /**
- *ordnet die Wehrungen zu und rechnet sie um
+ *ordnet die Waehrungen zu und rechnet sie um
  * @author Sameer Dhimal 569076,  Wojciech Maximilan Frackowski 576278
  */
 public enum Waehrung {
@@ -11,7 +11,7 @@ public enum Waehrung {
     }
 
     /**
-     *rechnet in Euro angegebenen Betrag in die jeweilige Währung um
+     *rechnet in Euro angegebenen Betrag in die jeweilige Waehrung um
      * @param betrag betrag umzurechnen
      * @return umgerechnete Betrag
      */
@@ -20,7 +20,7 @@ public enum Waehrung {
     }
 
     /**
-     *rechnet in this-Währung angegebenen Betrag in Euro um
+     *rechnet in this-Waehrung angegebenen Betrag in Euro um
      * @param betrag gegebene Betrag umzurechnen
      * @return umgerechnete Betrag
      */
