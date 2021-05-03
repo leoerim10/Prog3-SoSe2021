@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0cc690ac-1ef8-4e8a-befe-bcf8130b3bcb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/Kontentest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/GesperrtException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/Girokonto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/Konto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/Kontoart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/Kunde.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/Sparbuch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/Ueberweisungsfaehig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/src/bankprojekt/verarbeitung/Waehrung.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ub2loesung/ub2loesung.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ubg2/bankprojekt/verarbeitung/Waehrung.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ubg2/bankprojekt/verarbeitung/Waehrung.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\samdh\AppData\Local\JetBrains\Toolbox\apps\IDEA-C\ch-0\202.7660.26\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1s2A5D91IJPbUtiAkstHYXK1Zja" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Kontentest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Kontentest" />
+      <module name="Bank" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Kontentest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0cc690ac-1ef8-4e8a-befe-bcf8130b3bcb" name="Default Changelist" comment="" />
+      <created>1620060126904</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620060126904</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="283" y="98" key="#Project_Structure" timestamp="1620063177481">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="283" y="98" key="#Project_Structure/2560.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1620063177481" />
+    <state x="583" y="278" key="FileChooserDialogImpl" timestamp="1620064282411">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="583" y="278" key="FileChooserDialogImpl/2560.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1620064282411" />
+    <state x="394" y="184" key="new project wizard" timestamp="1620064283961">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="394" y="184" key="new project wizard/2560.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1620064283961" />
+  </component>
+</project>

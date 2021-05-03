@@ -1,3 +1,4 @@
+
 /**
  *ordnet die Waehrungen zu und rechnet sie um
  * @author Sameer Dhimal 569076,  Wojciech Maximilan Frackowski 576278
