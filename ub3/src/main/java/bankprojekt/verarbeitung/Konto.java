@@ -261,7 +261,7 @@ public abstract class Konto implements Comparable<Konto>
      * @param betrag double
      * @param waehrung die eingezahlt werden soll
      * @throws IllegalArgumentException wenn der betrag negativ ist
-     * @throws NullPointerException, wenn waehrung = null ist
+     * @throws NullPointerException wenn waehrung = null ist
      */
     public void einzahlen(double betrag, Waehrung waehrung) throws IllegalArgumentException {
         betrag = Waehrung.waehrungZuWaehrung(betrag, waehrung, this.waehrung);
@@ -278,7 +278,7 @@ public abstract class Konto implements Comparable<Konto>
      * false, wenn sie abgelehnt wurde
      * @throws GesperrtException wenn das Konto gesperrt ist
      * @throws IllegalArgumentException wenn der betrag negativ ist
-     * @throws NullPointerException, wenn waehrung = null ist
+     * @throws NullPointerException wenn waehrung = null ist
      */
     public boolean abheben(double betrag, Waehrung waehrung) throws GesperrtException {
         betrag = Waehrung.waehrungZuWaehrung(betrag, waehrung, this.waehrung);
@@ -289,7 +289,7 @@ public abstract class Konto implements Comparable<Konto>
      * Aendert die Waehrung mit dem das Konto arbeitet
      *
      * @param neu die neue Waehrung
-     * @throws NullPointerException, wenn neu = null ist
+     * @throws NullPointerException wenn neu = null ist
      */
     public void waehrungswechsel(Waehrung neu) {
         kontostand = Waehrung.waehrungZuWaehrung(kontostand, waehrung, neu);

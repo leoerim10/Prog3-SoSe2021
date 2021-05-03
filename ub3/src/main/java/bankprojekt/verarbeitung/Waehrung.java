@@ -23,7 +23,7 @@ public enum Waehrung {
     /**
      * Berechnet Euro -> andere Waehrung
      *
-     * @param betrag
+     * @param betrag gegebene Betrag
      * @return der umgerechnete Betrag
      */
     public double euroInWaehrungUmrechnen(double betrag) {
@@ -49,7 +49,7 @@ public enum Waehrung {
      * @param von Waehrung von der umgerechnet werden soll
      * @param zu Waehrung in die umgerechnet werden soll
      * @return das Ergebnis
-     * @throws NullPointerException, wenn von oder zu = null ist
+     * @throws NullPointerException wenn von oder zu = null ist
      */
     public static double waehrungZuWaehrung(double betrag, Waehrung von, Waehrung zu) throws NullPointerException{
         if(von == null || zu == null){
