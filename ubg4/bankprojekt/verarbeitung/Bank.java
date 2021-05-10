@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
@@ -42,7 +43,7 @@ public class Bank {
     }
 
     public List<Long> getAlleKontonummern(){
-        List<Long> l;
+        List<Long> l = new ArrayList<Long>();
         for(Long num: konten.keySet()){
             l.add(num);
         }
@@ -58,7 +59,14 @@ public class Bank {
             throw new NoSuchElementException("Konto with given Kontonummer not found");
         }
 
-        return konten.get(von).abheben(betrag);
+        boolean geklappt = false;
+        try{
+            geklappt = konten.get(von).abheben(betrag);
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
+        return geklappt;
     }
 
 
@@ -104,7 +112,7 @@ public class Bank {
         Konto nachKonto = this.konten.get(nach);
 
         //check if von has enough balance
-        if(vonKonto(von).getKontostand() - betrag >= vonKonto(von).getDispo()){
+        if(vonKonto.getKontostand() - betrag >= 0){
             vonKonto.setKontostand(vonKonto.getKontostand() - betrag);
             nachKonto.setKontostand(nachKonto.getKontostand() + betrag);
             return true;
