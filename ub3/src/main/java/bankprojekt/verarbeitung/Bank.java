@@ -152,14 +152,28 @@ public class Bank {
      * @throws IllegalArgumentException fuer ungueltigen Betrag
      * @throws GesperrtException fuer ueberweisungsunfaehigen Konto
      */
-    public boolean geldUberweisen(long vonKontonr, long nachKontonr, double betrag, String verwendungszweck) throws IllegalArgumentException, GesperrtException{
-        if(betrag <= 0){
-            throw new IllegalArgumentException("Betrag ungueltig!!!!");
+    public boolean geldUberweisen(long vonKontonr, long nachKontonr, double betrag, String verwendungszweck){
+        if (betrag < 0 || Double.isNaN(betrag)) {
+            throw new IllegalArgumentException("Betrag ungültig");
         }
+        //check if both accounts exist in the bank
         if(!konten.containsKey(vonKontonr) || !konten.containsKey(nachKontonr)){
             return false;
-            //TODO: working on it
         }
-        return true;
+
+        Konto vonKonto = this.konten.get(vonKontonr);
+        Konto nachKonto = this.konten.get(nachKontonr);
+
+        //check if von has enough balance
+        if(vonKonto.getKontostand() - betrag >= 0){
+            vonKonto.setKontostand(vonKonto.getKontostand() - betrag);
+            nachKonto.setKontostand(nachKonto.getKontostand() + betrag);
+            return true;
+        } else {
+            return false;
+        }
+
     }
+
+
 }
