@@ -51,10 +51,9 @@ public class Bank {
     }
 
     public boolean geldAbheben(long von, double betrag){
-        
-        /*if (betrag < 0 || Double.isNaN(betrag)) {
+        if (betrag < 0 || Double.isNaN(betrag)) {
 			throw new IllegalArgumentException("Betrag ungültig");
-		}*/
+		}
         if(!konten.containsKey(von)){
             throw new NoSuchElementException("Konto with given Kontonummer not found");
         }
@@ -64,10 +63,9 @@ public class Bank {
 
 
     public void geldEinzahlen(long auf, double betrag){
-        /*
         if (betrag < 0 || Double.isNaN(betrag)) {
 			throw new IllegalArgumentException("Betrag ungültig");
-		} */
+		}
         if(!konten.containsKey(auf)){
             throw new NoSuchElementException("Konto with given Kontonummer not found");
         }
@@ -94,11 +92,26 @@ public class Bank {
 
 
     public boolean geldUberweisen(long von, long nach, double betrag, String verwendungszweck){
+        if (betrag < 0 || Double.isNaN(betrag)) {
+			throw new IllegalArgumentException("Betrag ungültig");
+		}
+        //check if both accounts exist in the bank
         if(!konten.containsKey(von) || !konten.containsKey(nach)){
             return false;
         }
 
-        return true;
+        Konto vonKonto = this.konten.get(von);
+        Konto nachKonto = this.konten.get(nach);
+
+        //check if von has enough balance
+        if(vonKonto(von).getKontostand() - betrag >= vonKonto(von).getDispo()){
+            vonKonto.setKontostand(vonKonto.getKontostand() - betrag);
+            nachKonto.setKontostand(nachKonto.getKontostand() + betrag);
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 
 }
