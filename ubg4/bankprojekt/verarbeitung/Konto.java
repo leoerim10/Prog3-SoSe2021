@@ -1,5 +1,6 @@
 package bankprojekt.verarbeitung;
 
+import java.util.List;
 import bankprojekt.verarbeitung.GesperrtException;
 import bankprojekt.verarbeitung.Waehrung;
 /**
@@ -40,6 +41,8 @@ public abstract class Konto implements Comparable<Konto>
 	 * die zum Schaden des Kontoinhabers waren (abheben, Inhaberwechsel)
 	 */
 	private boolean gesperrt;
+
+	public List<Kontoaktion> actions;
 
 	/**
 	 * Setzt die beiden Eigenschaften kontoinhaber und kontonummer auf die angegebenen Werte,
