@@ -1,8 +1,8 @@
-package bankprojekt.verarbeitung;
 
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.HashMap; 
 
 /**
  * verwaltet verschiedene Kontoarten
@@ -15,7 +15,7 @@ public class Bank {
      */
     private long bankleitzahl;
 
-    private Map<Long, Konto> konten;
+    public Map<Long, Konto> konten = new HashMap<Long, Konto>();
 
     public Bank(long bankleitzahl){
         this.bankleitzahl = bankleitzahl;
@@ -34,7 +34,6 @@ public class Bank {
     public void setBankleitzahl(long bankleitzahl) {
         this.bankleitzahl = bankleitzahl;
     }
-
 
     /**
      * erstellt ein Girokonto fuer den angegebenen Kunden
@@ -66,7 +65,8 @@ public class Bank {
     public String getAlleKonten(){
         String kontoinfo= "";
         for(Konto k: konten.values()){
-            kontoinfo += String.format("Kontonummer: %10d, Kontostand: %10d\n", k.getKontonummer(), k.getKontostand());
+            kontoinfo += "Kontonummer: " + k.getKontonummer() + " Kontostand: " + k.getKontostand() + "\n";
+        
         }
         return kontoinfo;
     }
@@ -163,7 +163,7 @@ public class Bank {
      * @throws IllegalArgumentException fuer ungueltigen Betrag
      * @throws GesperrtException fuer ueberweisungsunfaehigen Konto
      */
-    public boolean geldUberweisen(long vonKontonr, long nachKontonr, double betrag, String verwendungszweck){
+    public boolean geldUberweisen(long von, long nach, double betrag, String verwendungszweck){
         if (betrag < 0 || Double.isNaN(betrag)) {
 			throw new IllegalArgumentException("Betrag ungültig");
 		}
@@ -183,5 +183,10 @@ public class Bank {
         } else {
             return false;
         }
+    }
+
+    public long mockEinfuegen(Konto k){
+        konten.put(k.getKontonummer(), k);
+        return k.getKontonummer();
     }
 }

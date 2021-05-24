@@ -1,8 +1,4 @@
-package bankprojekt.verarbeitung;
-
 import java.util.List;
-import bankprojekt.verarbeitung.GesperrtException;
-import bankprojekt.verarbeitung.Waehrung;
 /**
  * stellt ein allgemeines Konto dar
  */
@@ -42,9 +38,7 @@ public abstract class Konto implements Comparable<Konto>
 	 */
 	private boolean gesperrt;
 
-	public List<Kontoaktion> actions;
-
-	/**
+	/*
 	 * Setzt die beiden Eigenschaften kontoinhaber und kontonummer auf die angegebenen Werte,
 	 * der anfangliche Kontostand wird auf 0 gesetzt.
 	 *
@@ -95,7 +89,7 @@ public abstract class Konto implements Comparable<Konto>
 	 * liefert den aktuellen Kontostand
 	 * @return   double
 	 */
-	public final double getKontostand() {
+	public double getKontostand() {
 		return kontostand;
 	}
 
@@ -103,7 +97,7 @@ public abstract class Konto implements Comparable<Konto>
 	 * liefert die Kontonummer zur�ck
 	 * @return   long
 	 */
-	public final long getKontonummer() {
+	public long getKontonummer() {
 		return nummer;
 	}
 
