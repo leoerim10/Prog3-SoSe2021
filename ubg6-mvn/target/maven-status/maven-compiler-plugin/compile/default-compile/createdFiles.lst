@@ -1,0 +1,10 @@
+GesperrtException.class
+Waehrung.class
+Sparbuch.class
+Kunde.class
+Girokonto.class
+Kontoart.class
+Bank.class
+Kunde$Zerstoerer.class
+Konto.class
+Ueberweisungsfaehig.class
