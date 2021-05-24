@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.HashMap; 
@@ -76,7 +77,7 @@ public class Bank {
      * @return die Liste
      */
     public List<Long> getAlleKontonummern(){
-        List<Long> l = null;
+        List<Long> l = new ArrayList<Long>();
         for(Long num: konten.keySet()){
            l.add(num);
         }
@@ -91,7 +92,7 @@ public class Bank {
      * @throws IllegalArgumentException fuer ungueltigen Betrag
      * @throws NoSuchElementException fuer unqultigen Kontonummer
      */
-    public boolean geldAbheben(long von, double betrag) throws IllegalArgumentException, GesperrtException {
+    public boolean geldAbheben(long von, double betrag) throws IllegalArgumentException, GesperrtException, NoSuchElementException {
         if (betrag < 0 || Double.isNaN(betrag)) {
 			throw new IllegalArgumentException("Betrag ungültig");
 		}
@@ -99,11 +100,12 @@ public class Bank {
             throw new NoSuchElementException("Konto with given Kontonummer not found");
         }
 
-        boolean geklappt = false;
+        boolean geklappt;
+        Waehrung w = Waehrung.EUR;
         try{
-            geklappt = konten.get(von).abheben(betrag);
+            geklappt = konten.get(von).abheben(betrag,w);
         } catch (Exception e){
-            System.out.println(e);
+            throw new GesperrtException(von);
         }
 
         return geklappt;
@@ -117,7 +119,7 @@ public class Bank {
      * @throws IllegalArgumentException fuer ungueltigen Betrag
      * @throws NoSuchElementException fuer unqultigen Kontonummer
      */
-    public void geldEinzahlen(long auf, double betrag) throws IllegalArgumentException{
+    public void geldEinzahlen(long auf, double betrag) throws IllegalArgumentException, NoSuchElementException{
         if (betrag < 0 || Double.isNaN(betrag)) {
 			throw new IllegalArgumentException("Betrag ungültig");
 		}
@@ -125,7 +127,7 @@ public class Bank {
             throw new NoSuchElementException("Konto with given Kontonummer not found");
         }
 
-        konten.get(auf).einzahlen(betrag);
+        konten.get(auf).einzahlen(betrag, Waehrung.EUR);
     }
 
     /**
@@ -163,7 +165,7 @@ public class Bank {
      * @throws IllegalArgumentException fuer ungueltigen Betrag
      * @throws GesperrtException fuer ueberweisungsunfaehigen Konto
      */
-    public boolean geldUberweisen(long von, long nach, double betrag, String verwendungszweck){
+    public boolean geldUberweisen(long von, long nach, double betrag, String verwendungszweck) throws IllegalArgumentException{
         if (betrag < 0 || Double.isNaN(betrag)) {
 			throw new IllegalArgumentException("Betrag ungültig");
 		}

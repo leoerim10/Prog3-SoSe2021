@@ -28,7 +28,7 @@ public abstract class Konto implements Comparable<Konto>
 	 * setzt den aktuellen Kontostand
 	 * @param kontostand neuer Kontostand
 	 */
-	protected void setKontostand(double kontostand) {
+	public void setKontostand(double kontostand) {
 		this.kontostand = kontostand;
 	}
 
