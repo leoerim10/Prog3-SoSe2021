@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.HashMap; 
+import java.util.Comparator;
 
 /**
  * verwaltet verschiedene Kontoarten
@@ -219,7 +220,11 @@ public class Bank {
     
     public String getKundengeburtstage(){
         String msg = "";
-        
+        //Comparator<Kunde> c = (kunde1, kunde2) -> kunde1.getGeburtstag().compareTo(kunde2.getGeburtstag());
+        List<Kunde> list = konten.values().stream().map(k -> k.getInhaber()).collect(Collectors.toList());
+        list.stream().distinct().sorted((kunde1, kunde2) -> kunde1.getGeburtstag().compareTo(kunde2.getGeburtstag())).forEach(k -> {
+            msg = msg + k.toString() + "\n";
+        });
 
         return msg;
     }
