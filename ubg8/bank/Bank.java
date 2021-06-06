@@ -3,6 +3,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.HashMap; 
 
 /**
@@ -202,13 +204,27 @@ public class Bank {
 
     public List<Kunde> getKundenMitVollemKonto(double minimum){
         List<Kunde> list = new ArrayList<Kunde>();
-
+        konten.values().stream().filter(konto ->{
+            if(konto.getKontostand() >= minimum){
+                return true;
+            } else {
+                return false;
+            }
+        }).forEach(konto -> {
+            list.add(konto.getInhaber());
+        });
         return list;
     }
 
+    /*
     public String getKundengeburtstage(){
-        String msg = "";
-        //konten.values().stream().map()
-        return msg;
+       
     }
+
+    */
+    /*
+    public List<Long> getKontonummernLuecken(){
+    
+    }
+    */
 }
