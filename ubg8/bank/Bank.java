@@ -216,12 +216,15 @@ public class Bank {
         return list;
     }
 
-    /*
+    
     public String getKundengeburtstage(){
-       
+        String msg = "";
+        
+
+        return msg;
     }
 
-    */
+    
     /*
     public List<Long> getKontonummernLuecken(){
     
