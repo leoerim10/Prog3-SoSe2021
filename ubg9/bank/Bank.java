@@ -221,6 +221,7 @@ public class Bank implements Cloneable, Serializable{
         return list;
     }
     
+    /*
     public String getKundengeburtstage(){
         final String msg = "";
         //Comparator<Kunde> c = (kunde1, kunde2) -> kunde1.getGeburtstag().compareTo(kunde2.getGeburtstag());
@@ -230,7 +231,7 @@ public class Bank implements Cloneable, Serializable{
         });
 
         return msg;
-    }
+    } */
 
     public List<Long> getKontonummernLuecken(){
         List<Long> list = konten.values().stream().map(k -> k.getKontonummer()).collect(Collectors.toList());

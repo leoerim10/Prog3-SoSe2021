@@ -1,10 +1,11 @@
+import java.io.Serializable;
 
 /**
  * Ein Girokonto
  * @author Doro
  *
  */
-public class Girokonto extends Konto implements Ueberweisungsfaehig{
+public class Girokonto extends Konto implements Ueberweisungsfaehig, Serializable{
 	/**
 	 * Wert, bis zu dem das Konto berzogen werden darf
 	 */
