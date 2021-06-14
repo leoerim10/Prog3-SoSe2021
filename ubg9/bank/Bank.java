@@ -3,16 +3,21 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.HashMap; 
-import java.util.Comparator;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.lang.Cloneable;
 
 /**
  * verwaltet verschiedene Kontoarten
  * @author Sameer Dhimal 569076, Wojciech Maximilan Frackowski 576278
  */
-public class Bank {
+public class Bank implements Cloneable, Serializable{
 
     /**
      * die Bankleitzahl
@@ -113,7 +118,6 @@ public class Bank {
 
         return geklappt;
     }
-
 
     /**
      * zahlt den angegebenen Betrag auf das Konto
@@ -216,7 +220,6 @@ public class Bank {
         });
         return list;
     }
-
     
     public String getKundengeburtstage(){
         final String msg = "";
@@ -229,11 +232,28 @@ public class Bank {
         return msg;
     }
 
-    
-    
     public List<Long> getKontonummernLuecken(){
         List<Long> list = konten.values().stream().map(k -> k.getKontonummer()).collect(Collectors.toList());
         return list; 
     }
 
+
+    @Override
+    protected Bank clone(){
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(this);
+
+            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+			ObjectInputStream ois = new ObjectInputStream(bais);
+            return (Bank) ois.readObject();
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
