@@ -239,7 +239,7 @@ public class Bank implements Cloneable, Serializable{
 
 
     @Override
-    protected Object clone(){
+    protected Bank clone(){
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(baos);
