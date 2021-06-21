@@ -14,4 +14,11 @@ public enum Waehrung {
     public double waehrungInEuroUmrechnen(double betrag){
         return betrag / this.x;  
     }
+    
+    public static double waehrungZuWaehrung(double betrag, Waehrung von, Waehrung zu) throws NullPointerException{
+        if(von == null || zu == null){
+            throw new NullPointerException();
+        }
+        return zu.euroInWaehrungUmrechnen(von.waehrungInEuroUmrechnen(betrag));
+    }
 }
