@@ -12,7 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.lang.Cloneable;
-
+//import .Konto;
 /**
  * verwaltet verschiedene Kontoarten
  * @author Sameer Dhimal 569076, Wojciech Maximilan Frackowski 576278
@@ -48,7 +48,6 @@ public class Bank implements Cloneable, Serializable{
      * erstellt ein Girokonto fuer den angegebenen Kunden
      * @param inhaber Kunde
      * @return die neue vergebene Griokontonummer
-     */
     public long girokontoErstellen(Kunde inhaber){
         long num = konten.size() + 1;  //TODO: size test
         Girokonto g = new Girokonto(inhaber, num, 500.00);
@@ -60,11 +59,17 @@ public class Bank implements Cloneable, Serializable{
      * erstellt ein Sparbuch fuer den angegebenen Kunden
      * @param inhaber Kunde
      * @return die neue vergebene Sparkontonummer
-     */
     public long sparbuchErstellen(Kunde inhaber){
         long num = konten.size() + 1;
         Sparbuch s = new Sparbuch(inhaber, num);
         konten.put(num, s);
+        return num;
+    }
+    */
+
+    public long kontoErstellen(Kontofabrik fabrik, Kunde inhaber, int auswahl){
+        long num = konten.size() + 1;
+        konten.put(num, fabrik.erzeugen(auswahl, inhaber, num));
         return num;
     }
 
