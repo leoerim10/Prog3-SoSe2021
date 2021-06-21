@@ -44,32 +44,13 @@ public class Bank implements Cloneable, Serializable{
         this.bankleitzahl = bankleitzahl;
     }
 
-    /**
-     * erstellt ein Girokonto fuer den angegebenen Kunden
-     * @param inhaber Kunde
-     * @return die neue vergebene Griokontonummer
-    public long girokontoErstellen(Kunde inhaber){
-        long num = konten.size() + 1;  //TODO: size test
-        Girokonto g = new Girokonto(inhaber, num, 500.00);
-        konten.put(num, g);
-        return num;
-    }
-
-    /**
-     * erstellt ein Sparbuch fuer den angegebenen Kunden
-     * @param inhaber Kunde
-     * @return die neue vergebene Sparkontonummer
-    public long sparbuchErstellen(Kunde inhaber){
-        long num = konten.size() + 1;
-        Sparbuch s = new Sparbuch(inhaber, num);
-        konten.put(num, s);
-        return num;
-    }
-    */
 
     public long kontoErstellen(Kontofabrik fabrik, Kunde inhaber, int auswahl){
         long num = konten.size() + 1;
-        konten.put(num, fabrik.erzeugen(auswahl, inhaber, num));
+        Konto k = fabrik.erzeugen(auswahl, inhaber, num);
+        if (k != null) {
+            konten.put(num, k);
+        }
         return num;
     }
 
@@ -197,11 +178,6 @@ public class Bank implements Cloneable, Serializable{
         } else {
             return false;
         }
-    }
-
-    public long mockEinfuegen(Konto k){
-        konten.put(k.getKontonummer(), k);
-        return k.getKontonummer();
     }
 
     public void pleitegeierSperren(){

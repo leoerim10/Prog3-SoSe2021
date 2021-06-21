@@ -1,6 +1,9 @@
 
 
 public class Kontofabrik {
+	
+	public Kontofabrik() {}
+	
     public Konto erzeugen(int auswahl, Kunde inhaber, long nummer){
         Konto k = null;
         switch(auswahl){
