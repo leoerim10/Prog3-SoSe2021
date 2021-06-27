@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Abgagaben ab 5.iml" filepath="$PROJECT_DIR$/Abgagaben ab 5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ballspiel/Ballspiel.iml" filepath="$PROJECT_DIR$/Ballspiel/Ballspiel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bankprogram/Bankprogram.iml" filepath="$PROJECT_DIR$/Bankprogram/Bankprogram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fromatierte Ausgabe/Fromatierte Ausgabe.iml" filepath="$PROJECT_DIR$/Fromatierte Ausgabe/Fromatierte Ausgabe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NullstellenSuche/NullstellenSuche.iml" filepath="$PROJECT_DIR$/NullstellenSuche/NullstellenSuche.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Uebung5/Uebung5.iml" filepath="$PROJECT_DIR$/Uebung5/Uebung5.iml" />
+    </modules>
+  </component>
+</project>
