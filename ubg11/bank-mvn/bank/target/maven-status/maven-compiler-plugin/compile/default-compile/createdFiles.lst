@@ -1,0 +1,12 @@
+bank/Waehrung.class
+bank/Kontofabrik.class
+bank/KontoObserver.class
+bank/Konto.class
+bank/Kunde$Zerstoerer.class
+bank/Sparbuch.class
+bank/Bank.class
+bank/Ueberweisungsfaehig.class
+bank/Kontoart.class
+bank/Kunde.class
+bank/GesperrtException.class
+bank/Girokonto.class

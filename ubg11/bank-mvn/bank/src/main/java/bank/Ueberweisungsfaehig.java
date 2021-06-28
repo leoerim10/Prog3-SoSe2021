@@ -1,3 +1,4 @@
+package bank;
 /**
  * Dieses Interface zeigt an, dass mit einem 
  * implementierenden Konto uberweisungen
