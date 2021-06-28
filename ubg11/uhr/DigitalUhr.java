@@ -1,5 +1,3 @@
-package uhr;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,7 +23,7 @@ public class DigitalUhr extends JFrame
 							  // Aus = Ausschalten der Anzeige, 
 	
 	private boolean uhrAn = true;
-	private Zeit z;
+	private Zeit uhr;
 	
 	/**
 	 * erstellt das Fenster für die digitale Uhr und bringt es auf den
@@ -33,7 +31,7 @@ public class DigitalUhr extends JFrame
 	 */
 	public DigitalUhr() {
 		uhrAn = true;
-		Z = new Zeit();
+		uhr = new Zeit();
 
 		// Erstellung der Oberflächenelemente:
 		setTitle(TITEL);
