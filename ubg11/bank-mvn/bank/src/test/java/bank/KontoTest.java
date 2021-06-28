@@ -71,5 +71,9 @@ public class KontoTest {
 		}
        }
 
+    @Test
+    void testObserverMock() {
+    	
+    }
 }
 
