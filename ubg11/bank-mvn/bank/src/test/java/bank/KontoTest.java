@@ -16,7 +16,7 @@ public class KontoTest {
         konto.einzahlen(500.00);
         Kunde newOwner = new Kunde("Julie", "Mueller", "Some-Addresse", LocalDate.now());
         try {
-        konto.setInhaber(newOwner);
+            konto.setInhaber(newOwner);
         } catch(GesperrtException e) {
         	e.printStackTrace();
         }
@@ -25,8 +25,8 @@ public class KontoTest {
 		} catch (GesperrtException e) {
 			e.printStackTrace();
 		}
-       }
-
+    }
+    
     @Test
     void testObserverMock() {
     	
