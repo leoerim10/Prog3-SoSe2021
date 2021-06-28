@@ -199,14 +199,18 @@ public abstract class Konto implements Comparable<Konto> {
      * sperrt das Konto, Aktionen zum Schaden des Benutzers sind nicht mehr möglich.
      */
     public final void sperren() {
+    	boolean oldGesperrt = this.gesperrt;
         this.gesperrt = true;
+        prop.firePropertyChange("Sperren", oldGesperrt, true);
     }
 
     /**
      * entsperrt das Konto, alle Kontoaktionen sind wieder möglich.
      */
     public final void entsperren() {
+    	boolean oldGesperrt = this.gesperrt;
         this.gesperrt = false;
+        prop.firePropertyChange("Sperren", oldGesperrt, true);
     }
 
 
@@ -323,7 +327,9 @@ public abstract class Konto implements Comparable<Konto> {
      */
     public void waehrungswechsel(Waehrung neu) {
         kontostand = Waehrung.waehrungZuWaehrung(kontostand, waehrung, neu);
+        Waehrung oldWaehrung = getAktuelleWaehrung();
         this.waehrung = neu;
+        prop.firePropertyChange("Waehrung", oldWaehrung, neu);
     }
 
 
