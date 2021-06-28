@@ -1,9 +1,11 @@
 package bankprojekt.verarbeitung;
 
+import java.io.Serializable;
+
 /**
  * stellt ein allgemeines Konto dar
  */
-public abstract class Konto implements Comparable<Konto> {
+public abstract class Konto implements Comparable<Konto>, Serializable {
 
     /**
      * der Kontoinhaber
@@ -162,38 +164,36 @@ public abstract class Konto implements Comparable<Konto> {
      * @return true, wenn die Abhebung geklappt hat,
      * 		   false, wenn sie abgelehnt wurde
      */
-    public boolean abheben(double betrag) throws GesperrtException{
+    public final boolean abheben(double betrag) throws GesperrtException, IllegalArgumentException {
         if (betrag < 0 || Double.isNaN(betrag)) {
             throw new IllegalArgumentException("Betrag ungültig");
         }
-        if(this.isGesperrt())
-        {
-            GesperrtException e = new GesperrtException(this.getKontonummer());
-            throw e;
+        if (this.isGesperrt()) {
+            throw new GesperrtException(this.getKontonummer());
         }
-        if(abhebenGiro(betrag)){
-            return true;
-        }
-        if (abhebenSpar(betrag)){
-            return true;
-        }
-       return false;
+        if(!this.pruefAbhebeBedingung(betrag))
+            return false;
+        this.setKontostand(this.getKontostand() - betrag);
+        nachAbhebung(betrag); // hook method called
+        return false;
     }
 
+
     /**
-     * hebt den gegebenen Betraf vonm Girokonto ab
-     * @param betrag Betrag
-     * @return true, wenn die Abhebung geklappt hat
+     * prueft, ob Konditionen zur Abhebung eingehalten werden
+     * @param betrag double
+     * @return true, wenn Abhebung moeglich ist
      */
-    public abstract boolean abhebenGiro(double betrag);
+    public abstract boolean pruefAbhebeBedingung(double betrag);
 
 
     /**
-     * hebt den gegebenen Betraf vonm Sparkonto ab
-     * @param betrag gegebene Betrag
-     * @return true, wenn die Abhebung geklappt hat
+     * fuehrt Aktionen Abhebung durch
+     * @param betrag double
      */
-    public abstract boolean abhebenSpar(double betrag);
+    protected void nachAbhebung(double betrag){
+    }
+
 
     /**
      * sperrt das Konto, Aktionen zum Schaden des Benutzers sind nicht mehr möglich.

@@ -61,26 +61,25 @@ public class Sparbuch extends Konto {
     }
 
     @Override
-    public boolean abhebenGiro(double betrag) {
+    public boolean pruefAbhebeBedingung(double betrag) {
+        LocalDate heute = LocalDate.now();
+        double bereits = this.bereitsAbgehoben;
+        if (heute.getMonth() != zeitpunkt.getMonth() || heute.getYear() != zeitpunkt.getYear())
+            bereits = 0;
+        if (getKontostand() - betrag >= 50 && bereits + betrag <= this.getAktuelleWaehrung().euroInWaehrungUmrechnen(Sparbuch.ABHEBESUMME))
+            return true;
         return false;
     }
 
 
     @Override
-    public boolean abhebenSpar (double betrag)  {
+    protected void nachAbhebung(double betrag){
         LocalDate heute = LocalDate.now();
         if(heute.getMonth() != zeitpunkt.getMonth() || heute.getYear() != zeitpunkt.getYear())
-        {
             this.bereitsAbgehoben = 0;
-        }
-        if (getKontostand() - betrag >= 0.50 && bereitsAbgehoben + betrag <= getAktuelleWaehrung().euroInWaehrungUmrechnen(Sparbuch.ABHEBESUMME)){
-            setKontostand(getKontostand() - betrag);
-            bereitsAbgehoben += betrag;
-            this.zeitpunkt = LocalDate.now();
-            return true;
-        }
-        else
-            return false;
+        bereitsAbgehoben += betrag;
+        this.zeitpunkt = LocalDate.now();
     }
+
 
 }

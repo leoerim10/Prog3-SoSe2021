@@ -55,17 +55,6 @@ public class Bank implements Cloneable, Serializable{
         return konten;
     }
 
-/**
-     * erstellt ein Girokonto fuer den angegebenen Kunden
-     * @param inhaber Kunde
-     * @return die neue vergebene Griokontonummer
-     */
-   /* public long girokontoErstellen(Kunde inhaber) {
-        long neueKontonummer = getNeueKontonummer();
-        Girokonto girokonto = new Girokonto(inhaber, neueKontonummer, 1000);
-        konten.put(neueKontonummer, girokonto);
-        return neueKontonummer;
-    }*/
 
     /**
      * gibt eine neue Kontonummer zurueck
@@ -79,17 +68,6 @@ public class Bank implements Cloneable, Serializable{
             return konten.lastKey() + 1;
     }
 
-    /**
-     * erstellt ein Sparbuch fuer den angegebenen Kunden
-     * @param inhaber Kunde
-     * @return die neue vergebene Sparkontonummer
-     */
-   /* public long sparbuchErstellen(Kunde inhaber){
-        long neueKontonummer = getNeueKontonummer();
-        Sparbuch sparbuch = new Sparbuch(inhaber, neueKontonummer);
-        konten.put(neueKontonummer, sparbuch);
-        return neueKontonummer;
-    }*/
 
     /**
      * liefert eine Auflistung von Kontoinformationen aller Konten
@@ -244,7 +222,7 @@ public class Bank implements Cloneable, Serializable{
     /**
      * Diese Methode gibt zurueck ob eine Kontonummer gesperrt ist
      *
-     * @param kontonummer
+     * @param kontonummer, kontonummer
      * Kontonummer die geprueft werden soll
      * @return true wenn Konto gesperrt ist
      * @throws KontonummerNotFoundException
@@ -430,19 +408,17 @@ public class Bank implements Cloneable, Serializable{
 
 
     /**
-     * erstellt eine neue Konto
-     * @param fabrik ein Konto
-     * @param inhaber Inhaber
-     * @param auswahl Sparbuch or GiroKonto
-     * @return
+     * erstellt eine neue Konto fuer den angegeben Kunden
+     * @param fabrik fabrik zum Erzeugen der speziellen Konten
+     * @param inhaber Inhaber als Kundenobjek
+     * @return vergebene Kontonummer als Long
+     * @throws IllegalArgumentException, wenn inhaber null ist
      */
-    public long kontoErstellen(Kontofabrik fabrik, Kunde inhaber, int auswahl){
-        long num = konten.size() + 1;
-        Konto k = fabrik.erzeugen(auswahl, inhaber, num);
-        if (k != null) {
-            konten.put(num, k);
-        }
-        return num;
+    public long kontoErstellen(Kontofabrik fabrik, Kunde inhaber) {
+        long neueKontonummer = getNeueKontonummer();
+        Konto k = fabrik.erstellen(inhaber, neueKontonummer);
+        konten.put(neueKontonummer, k);
+        return neueKontonummer;
     }
 }
 

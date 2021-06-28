@@ -1,31 +1,16 @@
 package bankprojekt.verarbeitung;
 
 /**
- * erstellt ein neues Bankkonto, entweder Giro oder Sparkonto
+ * bietet das Erstellen con neuen Konten an
  */
-public class Kontofabrik {
-    private final int SPARBUCH = 1;
-    private final int GIROKONTO = 2;
+public abstract class Kontofabrik {
 
     /**
-     * erzeugt ein neues Sparbuch or GiroKonto
-     * @param auswahl Auswahl für Kontoart
-     * @param inhaber Ihnaber
-     * @param nummer Konto nummer
-     * @return ein neues Konto
+     * erstellt ein nueues Konto
+     * @param inhaber des Kontos (als Kundenobjekt
+     * @param kontonr die zu vergebene Kontonummer des neuen Kontos
+     * @return das neue Konto
+     * @throws IllegalArgumentException, wenn inhaber null ist oder Kontoart nicht vorhanden ist
      */
-    public Konto erzeugen(int auswahl, Kunde inhaber, long nummer) {
-        Konto k = null;
-        switch (auswahl) {
-            case SPARBUCH:
-                k = new Sparbuch(inhaber, nummer);
-                break;
-            case GIROKONTO:
-                k = new Girokonto(inhaber, nummer, 500.00);
-                break;
-            default:
-        }
-
-        return k;
-    }
+    public abstract Konto erstellen(Kunde inhaber, long kontonr);
 }

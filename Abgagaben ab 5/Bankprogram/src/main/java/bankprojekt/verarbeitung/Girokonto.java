@@ -96,20 +96,11 @@ public class Girokonto extends Konto implements Ueberweisungsfaehig, Serializabl
         return ausgabe;
     }
 
-
     @Override
-    public boolean abhebenGiro(double betrag){
-        if (getKontostand() - betrag >= - dispo)
-        {
-            setKontostand(getKontostand() - betrag);
+    public boolean pruefAbhebeBedingung(double betrag) {
+        if(getKontostand() - betrag >= -dispo) {
             return true;
         }
-        else
-            return false;
-    }
-
-    @Override
-    public boolean abhebenSpar(double betrag) {
         return false;
     }
 
