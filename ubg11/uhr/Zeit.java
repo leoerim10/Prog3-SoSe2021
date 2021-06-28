@@ -1,5 +1,3 @@
-package uhr;
-
 import java.time.LocalTime;
 
 /**
