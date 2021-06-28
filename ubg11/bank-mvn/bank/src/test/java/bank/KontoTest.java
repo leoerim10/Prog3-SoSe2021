@@ -1,15 +1,17 @@
-import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import bank.*;
-
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatcher;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
 
 /**
  * enthaelt die Tests für die Klasse Girokonto
  */
 public class KontoTest {
-
+ 
     @Test
-    void testObserver() {
+    void testObserverMock() {
         KontoObserver observer = new KontoObserver();
         Girokonto konto = new Girokonto();
         konto.anmelden(observer);
@@ -25,11 +27,8 @@ public class KontoTest {
 		} catch (GesperrtException e) {
 			e.printStackTrace();
 		}
-    }
-    
-    @Test
-    void testObserverMock() {
-    	
+        konto.waehrungswechsel(Waehrung.KM);
+        konto.entsperren();
     }
 }
 

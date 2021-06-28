@@ -4,7 +4,6 @@ import java.beans.PropertyChangeListener;
 
 public class KontoObserver implements PropertyChangeListener{
 
-
     @Override
     public void propertyChange(PropertyChangeEvent e){
         if(e.getPropertyName().equals("Kontostand")){
@@ -25,7 +24,7 @@ public class KontoObserver implements PropertyChangeListener{
         	} else {
         		status = "NOT GESPERRT";
         	}
-        	System.out.println("[*] Konto: " + k.getKontonummer() + "is " + status);
+        	System.out.println("[*] Konto: " + k.getKontonummer() + " is " + status);
         }
         if(e.getPropertyName().equals("Waehrung")) {
         	Waehrung oldWaehrung = (Waehrung) e.getOldValue();
