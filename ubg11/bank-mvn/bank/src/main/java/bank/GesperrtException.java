@@ -1,3 +1,4 @@
+package bank;
 
 /**
  * tritt bei einem schdigenden Zugriff auf ein gesperrtes Konto auf

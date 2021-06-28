@@ -1,4 +1,4 @@
-
+package bank;
 /**
  * Liste von angebotenen Kontoarten
  *
